@@ -1,0 +1,13 @@
+library(tidyverse)
+
+car_data<-read.csv("MechaCar_mpg.csv", stringsAsFactors = F, check.names = F)
+
+car_lr<-lm(mpg~vehicle_length + vehicle_weight + spoiler_angle + ground_clearance + AWD, data = car_data)
+
+summary(car_lr)
+
+sus_data<-read.csv("Suspension_Coil.csv", stringsAsFactors = F, check.names = F)
+
+totalsummary<-sus_data %>% summarize(mean=mean(PSI),median = median(PSI), variance = var(PSI), STD=sd(PSI))
+
+lotsummary<-sus_data%>% group_by(Manufacturing_Lot) %>% summarize(mean=mean(PSI),median = median(PSI), variance = var(PSI), STD=sd(PSI))
