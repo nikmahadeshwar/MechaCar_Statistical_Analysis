@@ -11,3 +11,4 @@ sus_data<-read.csv("Suspension_Coil.csv", stringsAsFactors = F, check.names = F)
 totalsummary<-sus_data %>% summarize(mean=mean(PSI),median = median(PSI), variance = var(PSI), STD=sd(PSI))
 
 lotsummary<-sus_data%>% group_by(Manufacturing_Lot) %>% summarize(mean=mean(PSI),median = median(PSI), variance = var(PSI), STD=sd(PSI))
+totalsummary
